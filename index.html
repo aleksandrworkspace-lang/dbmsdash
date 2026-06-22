@@ -517,9 +517,86 @@
   .wn-card-src { font-size: 10px; color: var(--blue); font-weight: 600; }
   .wn-arrow { font-size: 14px; color: var(--text2); transition: color .15s, transform .15s; }
   .wn-card:hover .wn-arrow { color: var(--blue); transform: translateX(3px); }
+
+  /* ── LOGIN OVERLAY ── */
+  #login-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 15% -5%, rgba(59,130,246,0.13) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 40% at 85% 105%, rgba(168,85,247,0.09) 0%, transparent 50%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #login-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 48px;
+    width: 380px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  #login-logo {
+    font-size: 13px; font-weight: 800; letter-spacing: -0.3px;
+    background: var(--grd-blue);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: 4px;
+  }
+  #login-box h2 {
+    font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--text);
+  }
+  #login-box p {
+    color: var(--text2); font-size: 13px; margin-bottom: 28px;
+  }
+  .login-field { margin-bottom: 16px; }
+  .login-field label {
+    display: block; font-size: 11px; font-weight: 600; color: var(--text2);
+    margin-bottom: 6px; letter-spacing: 0.6px; text-transform: uppercase;
+  }
+  .login-field input {
+    width: 100%; padding: 10px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .login-field input:focus { border-color: var(--blue); background: rgba(59,130,246,0.06); }
+  #login-error {
+    color: var(--red); font-size: 12px; margin-bottom: 14px; display: none;
+  }
+  #login-btn {
+    width: 100%; padding: 11px;
+    background: linear-gradient(135deg,#3b82f6,#06b6d4);
+    border: none; border-radius: 8px;
+    color: #fff; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: opacity 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  #login-btn:hover { opacity: 0.85; }
 </style>
 </head>
 <body>
+<div id="login-overlay">
+  <div id="login-box">
+    <div id="login-logo">DBMS Dashboard</div>
+    <h2>Вход в систему</h2>
+    <p>Аналитическая платформа · Рынок СУБД</p>
+    <div class="login-field">
+      <label>Логин</label>
+      <input type="text" id="login-user" autocomplete="username" placeholder="username">
+    </div>
+    <div class="login-field">
+      <label>Пароль</label>
+      <input type="password" id="login-pass" autocomplete="current-password" placeholder="••••••">
+    </div>
+    <div id="login-error">Неверный логин или пароль</div>
+    <button id="login-btn" onclick="doLogin()">Войти →</button>
+  </div>
+</div>
 
 <nav>
   <span class="logo">📊 СУБД Аналитика</span>
@@ -2581,6 +2658,29 @@ new Chart(document.getElementById('pgAiTimeline'), {
     }}},
     scales: { x: { ...gridOpts, ticks: { font: { size: 9 } } }, y: { ...gridOpts, title: { display: true, text: 'AI-готовность' }, max: 100 } }
   }
+});
+</script>
+<script>
+(function(){
+  if(sessionStorage.getItem('dbms_auth')==='1')
+    document.getElementById('login-overlay').style.display='none';
+})();
+function doLogin(){
+  const u=document.getElementById('login-user').value.trim();
+  const p=document.getElementById('login-pass').value;
+  if(u==='admin'&&p==='sbtgam'){
+    sessionStorage.setItem('dbms_auth','1');
+    document.getElementById('login-overlay').style.display='none';
+  } else {
+    const err=document.getElementById('login-error');
+    err.style.display='block';
+    document.getElementById('login-pass').value='';
+    document.getElementById('login-pass').focus();
+  }
+}
+document.addEventListener('keydown',function(e){
+  const ov=document.getElementById('login-overlay');
+  if(e.key==='Enter'&&ov.style.display!=='none')doLogin();
 });
 </script>
 </body>
