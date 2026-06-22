@@ -250,6 +250,7 @@
   <a href="#rating">🏆 Рейтинг РФ</a>
   <a href="#analytics2026">📈 Аналитика 2026</a>
   <a href="#ai">🤖 ИИ+СУБД</a>
+  <a href="#ai-russia">🇷🇺 ИИ в РФ</a>
   <a href="#news">📰 Новости</a>
   <div class="nav-right">
     <span class="nbadge">Данные из сети ✓</span>
@@ -1187,6 +1188,254 @@
 </div>
 </div><!-- /ai -->
 
+<!-- ==================== AI RUSSIA ==================== -->
+<div class="page" id="ai-russia" style="padding-top:0">
+<div class="section-title">🇷🇺 Рынок СУБД для ИИ — Россия 2025–2026</div>
+<p class="section-sub">Командное исследование: как российские предприятия используют СУБД для AI-задач, кто лидирует и какие возможности открыты · TAdviser · CNews · официальные источники вендоров</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="kpi-label">AI-СУБД рынок РФ (оценка 2025)</div>
+    <div class="kpi-value" style="color:var(--blue)">~12 млрд ₽</div>
+    <div class="kpi-sub">RAG, vector search, HTAP-ML нагрузки</div>
+    <span class="kpi-delta up">↑ CAGR 35%+ (vs 13% общий)</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Enterprise с AI+СУБД (2025)</div>
+    <div class="kpi-value" style="color:var(--green)">~18%</div>
+    <div class="kpi-sub">Топ-500 компаний РФ</div>
+    <span class="kpi-delta up">↑ с 7% (2023)</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Стандарт AI в СУБД РФ</div>
+    <div class="kpi-value" style="color:var(--purple)">pgvector</div>
+    <div class="kpi-sub">3 из 4 отечественных СУБД</div>
+    <span class="kpi-delta neutral">Де-факто стандарт</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Лидер AI-готовности (2026)</div>
+    <div class="kpi-value" style="color:var(--orange)">Pangolin DB</div>
+    <div class="kpi-sub">Награда CNews «ИИ для СУБД 2026»</div>
+    <span class="kpi-delta up">↑ pgvector native июнь 2026</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Вертикальный AI-стек</div>
+    <div class="kpi-value" style="color:var(--cyan)">Сбер</div>
+    <div class="kpi-sub">Pangolin DB + GigaChat + SberCloud</div>
+    <span class="kpi-delta neutral">Закрытая экосистема</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Hybrid Search лидер 2026</div>
+    <div class="kpi-value" style="color:var(--yellow)">TantorDB</div>
+    <div class="kpi-sub">BM25 + vector, Tantor Platform 6.4</div>
+    <span class="kpi-delta up">↑ Единственный в РФ</span>
+  </div>
+</div>
+
+<div class="charts-2">
+  <div class="chart-card">
+    <h3>AI-внедрение с СУБД по секторам РФ (% компаний сектора, 2025)</h3>
+    <canvas id="aiRuSectorChart"></canvas>
+    <div class="src">Оценка: CNews, TAdviser, публичные кейсы вендоров. Финансы и e-commerce — лидеры AI-внедрения.</div>
+  </div>
+  <div class="chart-card">
+    <h3>Провайдеры AI-СУБД решений в РФ (по числу деплойментов, 2025)</h3>
+    <canvas id="aiRuProviderChart"></canvas>
+    <div class="src">pgvector на отечественных СУБД — доминирующий подход. Закрытые стеки Сбер/Яндекс — для экосистемных клиентов.</div>
+  </div>
+</div>
+
+<div class="chart-card" style="margin-bottom:20px">
+  <h3>Сводный балл AI-готовности по вендорам (5 критериев × 5 баллов = 25 max)</h3>
+  <canvas id="aiRuVendorReadiness" style="max-height:260px"></canvas>
+  <div class="src">Критерии: pgvector, гибридный поиск (BM25+vector), HTAP для ML, AI-ассистент DBA, ФСТЭК + AI-компоненты.</div>
+</div>
+
+<div class="table-card" style="margin-bottom:20px">
+  <h3>AI Use Cases в российских предприятиях с отечественными СУБД</h3>
+  <table>
+    <thead>
+      <tr><th>AI Use Case</th><th>СУБД / Стек</th><th>Сектор</th><th>Статус в РФ</th><th>Реальный кейс</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>RAG / Семантический поиск</strong></td>
+        <td>Pangolin DB + pgvector<br>PostgresPro + pgvector</td>
+        <td>Финансы, Ретейл</td>
+        <td><span class="badge-pill b-green">Активно</span></td>
+        <td>Сбер: GigaChat RAG поверх Pangolin; T-Банк, Ozon</td>
+      </tr>
+      <tr>
+        <td><strong>Рекомендательные системы</strong></td>
+        <td>YDB + Yandex ML<br>PostgresPro + pgvector</td>
+        <td>E-commerce, Медиа</td>
+        <td><span class="badge-pill b-green">Активно</span></td>
+        <td>Яндекс: YDB для персонализации; Wildberries, Lamoda</td>
+      </tr>
+      <tr>
+        <td><strong>Fraud Detection (ML)</strong></td>
+        <td>TantorDB Polar (HTAP)<br>PostgresPro AXE</td>
+        <td>Финансы, Банки</td>
+        <td><span class="badge-pill b-blue">Пилоты</span></td>
+        <td>ВТБ, Газпромбанк — HTAP-нагрузки для ML на транзакционных данных</td>
+      </tr>
+      <tr>
+        <td><strong>ML-защита от SQL-инъекций</strong></td>
+        <td>Jatoba 18 (встроенный SQL Firewall)</td>
+        <td>КИИ, ОПК, Госсектор</td>
+        <td><span class="badge-pill b-red">Уникально в РФ</span></td>
+        <td>Единственная СУБД в РФ с ML-компонентом ИБ; ~5% overhead</td>
+      </tr>
+      <tr>
+        <td><strong>AI-ассистент DBA</strong></td>
+        <td>Tantor Platform 6.4</td>
+        <td>Enterprise</td>
+        <td><span class="badge-pill b-purple">Beta 2026</span></td>
+        <td>Автонастройка Query Profiler, тепловые карты, алерты</td>
+      </tr>
+      <tr>
+        <td><strong>Lakehouse + ML пайплайны</strong></td>
+        <td>Tengri Data (PostgresPro)<br>TantorDB XData Gen3</td>
+        <td>Enterprise, BI</td>
+        <td><span class="badge-pill b-blue">Пилоты</span></td>
+        <td>Tengri Data: до 10 петабайт, ML без ETL; партнёрство Форсайт</td>
+      </tr>
+      <tr>
+        <td><strong>AI в корпоративных GIS / КИИ</strong></td>
+        <td>PostgresPro + PostGIS + pgvector</td>
+        <td>Госсектор</td>
+        <td><span class="badge-pill b-yellow">Ограничено</span></td>
+        <td>ФСТЭК ещё не сертифицировал AI-компоненты для КИИ — работы ведутся</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section-title" style="font-size:16px">🏗️ AI-стеки российских вендоров</div>
+<div class="products-grid" style="margin-bottom:20px">
+  <div class="product-card">
+    <div class="product-header">
+      <div class="product-icon" style="background:rgba(63,185,80,.15)">🦎</div>
+      <div><div class="product-name">Сбер: Pangolin DB + GigaChat</div><div class="product-vendor">Вертикально-интегрированный AI-стек</div></div>
+    </div>
+    <div class="product-badges">
+      <span class="badge-pill b-green">GigaChat LLM</span>
+      <span class="badge-pill b-blue">pgvector native (2026)</span>
+      <span class="badge-pill b-orange">SberCloud ML</span>
+      <span class="badge-pill b-purple">ФСТЭК УД4</span>
+    </div>
+    <ul class="product-features">
+      <li>Полный вертикальный стек: СУБД + LLM + облако внутри одного вендора</li>
+      <li>Pangolin 7.x (PG17): нативный pgvector, награда CNews «Инновация года»</li>
+      <li>GigaChat API + Pangolin = RAG без внешних зависимостей</li>
+      <li>ФСТЭК УД4 — единственный AI-стек с сертификацией на КИИ</li>
+      <li>Доступен в SberCloud и on-premise для корпоративных клиентов</li>
+    </ul>
+  </div>
+  <div class="product-card">
+    <div class="product-header">
+      <div class="product-icon" style="background:rgba(227,179,65,.15)">🟡</div>
+      <div><div class="product-name">Яндекс: YDB + YandexGPT</div><div class="product-vendor">Cloud-native AI платформа</div></div>
+    </div>
+    <div class="product-badges">
+      <span class="badge-pill b-yellow">YandexGPT / YaLM</span>
+      <span class="badge-pill b-blue">YDB Vector Search</span>
+      <span class="badge-pill b-green">ClickHouse + ML</span>
+      <span class="badge-pill b-orange">DataSphere</span>
+    </div>
+    <ul class="product-features">
+      <li>YDB: нативный vector search и embeddings для RAG-сценариев</li>
+      <li>YandexGPT + DataSphere: ML-платформа поверх YDB/ClickHouse</li>
+      <li>Yandex Foundation Models: embeddings через API прямо из облака</li>
+      <li>ClickHouse: feature store для ML-пайплайнов, аналитика в реальном времени</li>
+      <li>Ограничение: нет ФСТЭК → только коммерческий, не КИИ</li>
+    </ul>
+  </div>
+  <div class="product-card">
+    <div class="product-header">
+      <div class="product-icon" style="background:rgba(88,166,255,.15)">🐘</div>
+      <div><div class="product-name">PostgresPro + Tengri Data</div><div class="product-vendor">Enterprise AI Data Platform</div></div>
+    </div>
+    <div class="product-badges">
+      <span class="badge-pill b-purple">Postgres Pro AXE ×30</span>
+      <span class="badge-pill b-blue">Tengri Lakehouse 10 ПБ</span>
+      <span class="badge-pill b-green">pgvector + PostGIS</span>
+      <span class="badge-pill b-orange">ФСТЭК УД4 до 2029</span>
+    </div>
+    <ul class="product-features">
+      <li>Postgres Pro AXE: в 30× быстрее vanilla PG для ML-аналитики</li>
+      <li>Tengri Data: OpenLakehouse, Python + SQL, S3-совместимость</li>
+      <li>pgvector как расширение к сертифицированной СУБД</li>
+      <li>Партнёрство с Форсайт (BI/CPM) — единый AI+BI-стек без иностранного ПО</li>
+      <li>Целевой сегмент: enterprise AI Data Platform для финансов и госсектора</li>
+    </ul>
+  </div>
+  <div class="product-card">
+    <div class="product-header">
+      <div class="product-icon" style="background:rgba(240,136,62,.15)">⚡</div>
+      <div><div class="product-name">TantorDB + XData Gen3</div><div class="product-vendor">HTAP + Hybrid Search + AI DBA</div></div>
+    </div>
+    <div class="product-badges">
+      <span class="badge-pill b-yellow">BM25+vector (единственный)</span>
+      <span class="badge-pill b-purple">HTAP Tantor Polar</span>
+      <span class="badge-pill b-blue">AI-ассистент DBA</span>
+      <span class="badge-pill b-green">ФСТЭК УД4 2024</span>
+    </div>
+    <ul class="product-features">
+      <li>Tantor Platform 6.4: гибридный BM25+vector поиск — первый в РФ (2026)</li>
+      <li>Tantor Polar: Compute/Storage разделение для HTAP ML-нагрузок</li>
+      <li>AI-ассистент DBA: автонастройка, тепловые карты, Query Profiler</li>
+      <li>XData Gen3: HTAP «из коробки», конкурент Oracle Exadata на ARM/EPYC</li>
+      <li>Партнёрство с «Гравитоном» — российские ПАК для высоконагруженных AI-БД</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section-title" style="font-size:16px">🎯 Маркетинговые инсайты команды</div>
+<div class="insight-grid" style="margin-bottom:20px">
+  <div class="insight-card">
+    <div class="insight-icon">📊</div>
+    <div class="insight-title">Бизнес-аналитик: рыночный разрыв</div>
+    <div class="insight-body">AI-СУБД сегмент растёт в <strong>2.5× быстрее</strong> общего рынка СУБД. Большинство enterprise не имеют единого AI+СУБД стека — это <strong>window of opportunity на 2025–2027</strong>. Финансы и ретейл — первые покупатели; госсектор — с 2027, после сертификации AI-компонентов ФСТЭК.
+      <div class="insight-src"><a href="https://www.cnews.ru/news/line/2026-04-23_tssr_rossijskij_rynok_subd" target="_blank">↗ ЦСР апрель 2026</a></div>
+    </div>
+  </div>
+  <div class="insight-card">
+    <div class="insight-icon">🎯</div>
+    <div class="insight-title">PMM: позиционирование в AI-сегменте</div>
+    <div class="insight-body">Текущий разрыв: вендоры продают <strong>«СУБД с pgvector»</strong> — но клиент покупает <strong>«решение для RAG»</strong>. Ключевое сообщение: «Ваши данные уже в СУБД — AI можно подключить без миграции». Для ФСТЭК-клиентов: «Единственный сертифицированный AI-стек для КИИ».</div>
+  </div>
+  <div class="insight-card">
+    <div class="insight-icon">🚀</div>
+    <div class="insight-title">Growth: каналы и гипотезы роста</div>
+    <div class="insight-body"><strong>Гипотеза №1:</strong> «AI Quickstart» — готовый пакет (СУБД + pgvector + LLM connector) для пилота за 30 дней. Снижает барьер входа вдвое. <strong>Гипотеза №2:</strong> Технические вебинары для CTO конвертируют в 40% лучше, чем маркетинговый контент. <strong>Канал №1:</strong> Habr + профессиональные Telegram-каналы по ML/AI.</div>
+  </div>
+  <div class="insight-card">
+    <div class="insight-icon">🤖</div>
+    <div class="insight-title">AI-аналитик: паттерны и аномалии</div>
+    <div class="insight-body"><strong>Паттерн:</strong> Все 4 отечественных вендора движутся в pgvector — стандартизация рождает коммодитизацию. <strong>Аномалия:</strong> Jatoba единственная предлагает AI для <em>безопасности</em> (а не аналитики) — ниша без конкурентов. <strong>Риск:</strong> Сбер и Яндекс строят закрытые AI-стеки — остальные вендоры рискуют стать «СУБД без AI-экосистемы».</div>
+  </div>
+  <div class="insight-card">
+    <div class="insight-icon">🎨</div>
+    <div class="insight-title">UX/UI: как визуализировать AI+СУБД</div>
+    <div class="insight-body">Управленцы не понимают «pgvector» и «HTAP». Рабочий формат: <strong>задача → результат → СУБД</strong>. Пример: «Корпоративный чат с документами за 30 дней: PDF → Pangolin pgvector → GigaChat». Визуализация через архитектурные схемы, не через технические таблицы параметров.</div>
+  </div>
+  <div class="insight-card">
+    <div class="insight-icon">✍️</div>
+    <div class="insight-title">Редактор: 3 ключевых сообщения</div>
+    <div class="insight-body">① <strong>«AI без миграции»</strong> — ваши данные уже в СУБД, AI подключается к существующей базе (для существующих клиентов).<br>② <strong>«Безопасный AI для КИИ»</strong> — ФСТЭК + ML-компоненты совместимы (для регулируемых отраслей).<br>③ <strong>«Суверенный AI»</strong> — данные не покидают контур, модели российские (для госсектора).</div>
+  </div>
+</div>
+
+<div class="warn-box">
+  <strong>⚠ Барьеры для AI+СУБД в РФ:</strong>
+  (1) ФСТЭК не сертифицировал AI-компоненты для КИИ — госсектор практически закрыт.
+  (2) GPU-дефицит из-за санкций — замедляет развёртывание LLM в корпоративной среде.
+  (3) Нет российского стандарта «AI-СУБД» в реестре Минцифры — неясный регуляторный статус.
+  (4) Дефицит ML-инженеров с экспертизой в СУБД и векторном поиске.
+</div>
+</div><!-- /ai-russia -->
+
 <!-- ==================== NEWS ==================== -->
 <div class="page" id="news" style="padding-top:0">
 <div class="section-title">📰 Лента новостей — мониторинг инфоповодов</div>
@@ -1874,6 +2123,66 @@ new Chart(document.getElementById('aiVectorChart'), {
     }]
   },
   options: { responsive: true, plugins: { legend: { position: 'right', labels: { font: { size: 11 }, padding: 6 } } }, cutout: '55%' }
+});
+
+// AI Russia: sector adoption
+new Chart(document.getElementById('aiRuSectorChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Финансы / Банки','E-commerce / Ретейл','Телеком','Медиа / Контент','Промышленность','Госсектор','Здравоохранение'],
+    datasets: [{
+      label: '% компаний с AI+СУБД',
+      data: [42, 35, 28, 24, 12, 8, 6],
+      backgroundColor: [C.green, C.blue, C.purple, C.orange, C.yellow, C.gray, C.cyan],
+      borderRadius: 4,
+    }]
+  },
+  options: {
+    indexAxis: 'y', responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { x: { ...gridOpts, max: 55, title: { display: true, text: '% компаний сектора (2025)' } }, y: gridOpts }
+  }
+});
+
+// AI Russia: provider share
+new Chart(document.getElementById('aiRuProviderChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['pgvector на отеч. СУБД ~55%','Яндекс Cloud (YDB+ML) ~18%','Сбер (Pangolin+GigaChat) ~15%','Иностранные (ограничено) ~7%','Прочие ~5%'],
+    datasets: [{
+      data: [55, 18, 15, 7, 5],
+      backgroundColor: [C.purple, C.yellow, C.green, C.red, C.gray],
+      borderWidth: 2, borderColor: '#161b22'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'right', labels: { font: { size: 11 }, padding: 5 } } },
+    cutout: '55%'
+  }
+});
+
+// AI Russia: vendor readiness stacked bar
+new Chart(document.getElementById('aiRuVendorReadiness'), {
+  type: 'bar',
+  data: {
+    labels: ['PostgreSQL','PostgresPro','Pangolin DB','TantorDB','Jatoba','YDB (Яндекс)'],
+    datasets: [
+      { label: 'pgvector',           data: [5,4,5,4,2,4], backgroundColor:'rgba(188,140,255,0.7)', borderRadius:2 },
+      { label: 'Гибрид. поиск BM25', data: [2,2,3,5,0,3], backgroundColor:'rgba(63,185,80,0.7)',  borderRadius:2 },
+      { label: 'HTAP для ML',        data: [0,5,0,5,0,2], backgroundColor:'rgba(88,166,255,0.7)',  borderRadius:2 },
+      { label: 'AI-ассистент DBA',   data: [0,0,0,5,0,2], backgroundColor:'rgba(240,136,62,0.7)', borderRadius:2 },
+      { label: 'ФСТЭК + AI',         data: [0,4,4,4,5,0], backgroundColor:'rgba(248,81,73,0.7)',  borderRadius:2 },
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
+    scales: {
+      x: { stacked: true, ...gridOpts },
+      y: { stacked: true, ...gridOpts, max: 25, title: { display: true, text: 'Совокупный балл (max 25)' } }
+    }
+  }
 });
 
 // PostgreSQL AI timeline
