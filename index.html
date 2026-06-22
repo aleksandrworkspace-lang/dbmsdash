@@ -2242,8 +2242,8 @@ new Chart(document.getElementById('ratingRadar'), {
     datasets: RATING_DATA.slice(0,5).map(d => ({
       label: d.name,
       data: [d.dims.rev, d.dims.share, d.dims.fstec, d.dims.growth, d.dims.clients, d.dims.eco],
-      borderColor: d.color, backgroundColor: d.color.replace(')', ',0.05)').replace('rgb','rgba'),
-      borderWidth: 1.5, pointRadius: 3
+      borderColor: d.color, backgroundColor: 'transparent',
+      borderWidth: 2, pointRadius: 3, pointBackgroundColor: d.color
     }))
   },
   options: { responsive: true, plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
