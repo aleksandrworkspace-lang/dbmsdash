@@ -414,6 +414,90 @@
     transition:border-color .15s; font-family:inherit;
   }
   .search-box:focus { border-color:var(--blue); background:rgba(59,130,246,0.05); }
+
+  /* ── ЧТО НОВОГО ── */
+  .wn-updated {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; color: var(--text2);
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 20px; padding: 4px 12px; margin-bottom: 18px;
+  }
+  .wn-featured {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    position: relative; overflow: hidden;
+    transition: border-color .2s;
+  }
+  .wn-featured:hover { border-color: rgba(59,130,246,.3); }
+  .wn-featured::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
+  }
+  .wn-featured-inner { display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: start; }
+  @media(max-width:900px){ .wn-featured-inner { grid-template-columns: 1fr; } }
+  .wn-tag {
+    display: inline-block; font-size: 10px; font-weight: 800;
+    padding: 3px 10px; border-radius: 20px; letter-spacing: .5px;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .wn-tag-ai      { background: rgba(168,85,247,.15); color: var(--purple); border: 1px solid rgba(168,85,247,.25); }
+  .wn-tag-product { background: rgba(34,197,94,.12);  color: var(--green);  border: 1px solid rgba(34,197,94,.22); }
+  .wn-tag-market  { background: rgba(59,130,246,.12); color: var(--blue);   border: 1px solid rgba(59,130,246,.22); }
+  .wn-tag-reg     { background: rgba(239,68,68,.12);  color: var(--red);    border: 1px solid rgba(239,68,68,.22); }
+  .wn-tag-event   { background: rgba(234,179,8,.12);  color: var(--yellow); border: 1px solid rgba(234,179,8,.22); }
+  .wn-headline {
+    font-size: 22px; font-weight: 900; letter-spacing: -0.4px; line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .wn-headline a { color: var(--text); text-decoration: none; }
+  .wn-headline a:hover { color: var(--blue); }
+  .wn-lead { font-size: 13px; color: var(--text2); line-height: 1.65; margin-bottom: 16px; }
+  .wn-lead strong { color: var(--text); }
+  .wn-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .wn-date { font-size: 11px; color: var(--text2); font-weight: 500; }
+  .wn-source a { font-size: 11px; color: var(--blue); text-decoration: none; font-weight: 600; }
+  .wn-source a:hover { text-decoration: underline; }
+  .wn-featured-stat {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .wn-stat-row { display: flex; flex-direction: column; gap: 3px; }
+  .wn-stat-label { font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: .6px; font-weight: 700; }
+  .wn-stat-val { font-size: 20px; font-weight: 900; letter-spacing: -0.3px; }
+  .wn-stat-note { font-size: 11px; color: var(--text2); }
+  .wn-divider { height: 1px; background: var(--border); }
+
+  .wn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px; margin-bottom: 22px;
+  }
+  .wn-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px;
+    display: flex; flex-direction: column; gap: 8px;
+    transition: border-color .2s, transform .15s;
+    text-decoration: none;
+  }
+  .wn-card:hover { border-color: rgba(59,130,246,.3); transform: translateY(-2px); }
+  .wn-card-top { display: flex; align-items: center; justify-content: space-between; }
+  .wn-card-date { font-size: 10px; color: var(--text2); font-family: 'JetBrains Mono', monospace; }
+  .wn-card-headline {
+    font-size: 14px; font-weight: 800; letter-spacing: -0.2px;
+    line-height: 1.35; color: var(--text);
+  }
+  .wn-card:hover .wn-card-headline { color: var(--blue); }
+  .wn-card-body { font-size: 12px; color: var(--text2); line-height: 1.6; }
+  .wn-card-body strong { color: var(--text); }
+  .wn-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+  .wn-card-src { font-size: 10px; color: var(--blue); font-weight: 600; }
+  .wn-arrow { font-size: 14px; color: var(--text2); transition: color .15s, transform .15s; }
+  .wn-card:hover .wn-arrow { color: var(--blue); transform: translateX(3px); }
 </style>
 </head>
 <body>
@@ -1569,48 +1653,129 @@
   </div>
 </div>
 
-<div class="section-title" style="font-size:16px">🎯 Маркетинговые инсайты команды</div>
-<div class="insight-grid" style="margin-bottom:20px">
-  <div class="insight-card">
-    <div class="insight-icon">📊</div>
-    <div class="insight-title">Бизнес-аналитик: рыночный разрыв</div>
-    <div class="insight-body">AI-СУБД сегмент растёт в <strong>2.5× быстрее</strong> общего рынка СУБД. Большинство enterprise не имеют единого AI+СУБД стека — это <strong>window of opportunity на 2025–2027</strong>. Финансы и ретейл — первые покупатели; госсектор — с 2027, после сертификации AI-компонентов ФСТЭК.
-      <div class="insight-src"><a href="https://www.cnews.ru/news/line/2026-04-23_tssr_rossijskij_rynok_subd" target="_blank">↗ ЦСР апрель 2026</a></div>
+<div class="section-title">🔥 Что нового</div>
+<p class="section-sub">Ключевые инфоповоды по СУБД и ИИ в СУБД — Россия · Обновляется периодически</p>
+
+<div class="wn-updated">
+  <span class="live-dot"></span>
+  Обновлено: июнь 2026
+</div>
+
+<!-- FEATURED -->
+<div class="wn-featured">
+  <div class="wn-featured-inner">
+    <div>
+      <div><span class="wn-tag wn-tag-market">Рынок</span></div>
+      <h2 class="wn-headline"><a href="https://www.cnews.ru/news/line/2026-04-23_tssr_rossijskij_rynok_subd" target="_blank">Рынок СУБД в России достиг 89,5 млрд ₽ — отечественные продукты впервые занимают более 80% новых продаж</a></h2>
+      <p class="wn-lead">По данным ЦСР, в 2024 году объём российского рынка СУБД вырос на <strong>14,8% г/г</strong>. Доля отечественных СУБД в новых корпоративных закупках превысила <strong>82%</strong> — исторический максимум. Драйверы: обязательный переход KII-объектов, рост AI-нагрузок и уход западных вендоров. Прогноз к 2030 году — <strong>206 млрд ₽</strong>.</p>
+      <div class="wn-meta">
+        <span class="wn-date">Апрель 2026</span>
+        <span class="wn-source"><a href="https://www.cnews.ru/news/line/2026-04-23_tssr_rossijskij_rynok_subd" target="_blank">↗ CNews / ЦСР</a></span>
+      </div>
     </div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-icon">🎯</div>
-    <div class="insight-title">PMM: позиционирование в AI-сегменте</div>
-    <div class="insight-body">Текущий разрыв: вендоры продают <strong>«СУБД с pgvector»</strong> — но клиент покупает <strong>«решение для RAG»</strong>. Ключевое сообщение: «Ваши данные уже в СУБД — AI можно подключить без миграции». Для ФСТЭК-клиентов: «Единственный сертифицированный AI-стек для КИИ».</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-icon">🚀</div>
-    <div class="insight-title">Growth: каналы и гипотезы роста</div>
-    <div class="insight-body"><strong>Гипотеза №1:</strong> «AI Quickstart» — готовый пакет (СУБД + pgvector + LLM connector) для пилота за 30 дней. Снижает барьер входа вдвое. <strong>Гипотеза №2:</strong> Технические вебинары для CTO конвертируют в 40% лучше, чем маркетинговый контент. <strong>Канал №1:</strong> Habr + профессиональные Telegram-каналы по ML/AI.</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-icon">🤖</div>
-    <div class="insight-title">AI-аналитик: паттерны и аномалии</div>
-    <div class="insight-body"><strong>Паттерн:</strong> Все 4 отечественных вендора движутся в pgvector — стандартизация рождает коммодитизацию. <strong>Аномалия:</strong> Jatoba единственная предлагает AI для <em>безопасности</em> (а не аналитики) — ниша без конкурентов. <strong>Риск:</strong> Сбер и Яндекс строят закрытые AI-стеки — остальные вендоры рискуют стать «СУБД без AI-экосистемы».</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-icon">🎨</div>
-    <div class="insight-title">UX/UI: как визуализировать AI+СУБД</div>
-    <div class="insight-body">Управленцы не понимают «pgvector» и «HTAP». Рабочий формат: <strong>задача → результат → СУБД</strong>. Пример: «Корпоративный чат с документами за 30 дней: PDF → Pangolin pgvector → GigaChat». Визуализация через архитектурные схемы, не через технические таблицы параметров.</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-icon">✍️</div>
-    <div class="insight-title">Редактор: 3 ключевых сообщения</div>
-    <div class="insight-body">① <strong>«AI без миграции»</strong> — ваши данные уже в СУБД, AI подключается к существующей базе (для существующих клиентов).<br>② <strong>«Безопасный AI для КИИ»</strong> — ФСТЭК + ML-компоненты совместимы (для регулируемых отраслей).<br>③ <strong>«Суверенный AI»</strong> — данные не покидают контур, модели российские (для госсектора).</div>
+    <div class="wn-featured-stat">
+      <div class="wn-stat-row">
+        <div class="wn-stat-label">Объём рынка 2024</div>
+        <div class="wn-stat-val" style="color:var(--blue)">89,5 млрд ₽</div>
+        <div class="wn-stat-note">+14,8% к 2023</div>
+      </div>
+      <div class="wn-divider"></div>
+      <div class="wn-stat-row">
+        <div class="wn-stat-label">Доля отечественных (новые продажи)</div>
+        <div class="wn-stat-val" style="color:var(--green)">82%</div>
+        <div class="wn-stat-note">исторический максимум</div>
+      </div>
+      <div class="wn-divider"></div>
+      <div class="wn-stat-row">
+        <div class="wn-stat-label">Прогноз 2030</div>
+        <div class="wn-stat-val" style="color:var(--purple)">206 млрд ₽</div>
+        <div class="wn-stat-note">CAGR ~18%</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="warn-box">
-  <strong>⚠ Барьеры для AI+СУБД в РФ:</strong>
-  (1) ФСТЭК не сертифицировал AI-компоненты для КИИ — госсектор практически закрыт.
-  (2) GPU-дефицит из-за санкций — замедляет развёртывание LLM в корпоративной среде.
-  (3) Нет российского стандарта «AI-СУБД» в реестре Минцифры — неясный регуляторный статус.
-  (4) Дефицит ML-инженеров с экспертизой в СУБД и векторном поиске.
+<!-- GRID -->
+<div class="wn-grid">
+
+  <a class="wn-card" href="https://tantorlabs.ru/press/xdata-gen3" target="_blank">
+    <div class="wn-card-top">
+      <span class="wn-tag wn-tag-product">Продукт</span>
+      <span class="wn-card-date">Май 2026</span>
+    </div>
+    <div class="wn-card-headline">TantorDB выпустил XData Gen3 — первый отечественный HTAP с векторным поиском</div>
+    <div class="wn-card-body">Tantor Labs анонсировал новое поколение Tantor XData: гибридная OLTP+OLAP нагрузка, встроенный pgvector и поддержка AI-запросов прямо из SQL. Выручка компании выросла на <strong>+367% г/г</strong>.</div>
+    <div class="wn-card-footer">
+      <span class="wn-card-src">tantorlabs.ru</span>
+      <span class="wn-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="wn-card" href="https://postgrespro.ru/news/pressreleases/2026" target="_blank">
+    <div class="wn-card-top">
+      <span class="wn-tag wn-tag-reg">Регулятор</span>
+      <span class="wn-card-date">Март 2026</span>
+    </div>
+    <div class="wn-card-headline">PostgresPro получил сертификат ФСТЭК УД4 — действует до 2029 года</div>
+    <div class="wn-card-body">Postgres Professional подтвердил сертификацию по уровню доверия 4. Сертификат открывает допуск к КИИ-объектам и госсистемам категорий ГТ. Выручка компании за 2024 год — <strong>9,29 млрд ₽</strong>.</div>
+    <div class="wn-card-footer">
+      <span class="wn-card-src">postgrespro.ru</span>
+      <span class="wn-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="wn-card" href="https://pangolin.sbertech.ru/news" target="_blank">
+    <div class="wn-card-top">
+      <span class="wn-tag wn-tag-product">Продукт</span>
+      <span class="wn-card-date">Апрель 2026</span>
+    </div>
+    <div class="wn-card-headline">Pangolin DB вошёл в реестр ГосТех: 38 государственных информационных систем</div>
+    <div class="wn-card-body">СберТех подтвердил включение Pangolin в реестр ГосТех. СУБД используется в <strong>38 ГИС</strong> и 110 000 рабочих мест адвокатуры РФ. Сертификат ФСТЭК УД4 №4704.</div>
+    <div class="wn-card-footer">
+      <span class="wn-card-src">pangolin.sbertech.ru</span>
+      <span class="wn-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="wn-card" href="https://arenadata.io/press" target="_blank">
+    <div class="wn-card-top">
+      <span class="wn-tag wn-tag-market">Рынок</span>
+      <span class="wn-card-date">Март 2026</span>
+    </div>
+    <div class="wn-card-headline">Arenadata: выручка +62,8% г/г, 5,6 млрд ₽ — рекорд на рынке MPP-СУБД</div>
+    <div class="wn-card-body">Arenadata зафиксировала рекордный рост выручки в сегменте аналитических СУБД. Компания укрепляет позицию лидера в Greenplum-совместимом сегменте для BI и data warehouse задач.</div>
+    <div class="wn-card-footer">
+      <span class="wn-card-src">arenadata.io</span>
+      <span class="wn-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="wn-card" href="https://www.gaz-is.ru/products/jatoba" target="_blank">
+    <div class="wn-card-top">
+      <span class="wn-tag wn-tag-ai">ИИ+СУБД</span>
+      <span class="wn-card-date">Май 2026</span>
+    </div>
+    <div class="wn-card-headline">Jatoba запустила ML SQL Firewall на PG18 — ИИ для защиты баз данных КИИ</div>
+    <div class="wn-card-body">Газинформсервис представил ML-движок для обнаружения аномальных SQL-запросов прямо в СУБД. Jatoba — единственный отечественный вендор с AI-функцией в сегменте информационной <strong>безопасности СУБД</strong>.</div>
+    <div class="wn-card-footer">
+      <span class="wn-card-src">gaz-is.ru</span>
+      <span class="wn-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="wn-card" href="https://yandex.cloud/ru/blog/posts/ydb-vectorsearch" target="_blank">
+    <div class="wn-card-top">
+      <span class="wn-tag wn-tag-ai">ИИ+СУБД</span>
+      <span class="wn-card-date">Июнь 2026</span>
+    </div>
+    <div class="wn-card-headline">YDB добавил нативный векторный поиск — интеграция с YandexGPT и Yandex Foundation Models</div>
+    <div class="wn-card-body">Яндекс обновил YDB: нативная поддержка ANN-индексов, прямой коннектор к Yandex Foundation Models и готовые шаблоны для RAG-приложений. Позиционируется как <strong>альтернатива pgvector</strong> в Яндекс-экосистеме.</div>
+    <div class="wn-card-footer">
+      <span class="wn-card-src">yandex.cloud</span>
+      <span class="wn-arrow">→</span>
+    </div>
+  </a>
+
 </div>
 </div><!-- /ai-russia -->
 
